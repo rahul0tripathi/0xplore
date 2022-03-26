@@ -1,93 +1,68 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  Toolbar,
-  Typography,
-} from '@mui/material'
-import React from 'react'
-import logo from '../assets/images/logo.jpg'
+import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import React from "react";
 function Navbar() {
   return (
     <Box
       sx={{
         flexGrow: 1,
-        height: '100px !important',
+        height: "125px !important"
       }}
     >
       <AppBar
-        position='static'
+        position="static"
         sx={{
-          backgroundColor: '#141414 !important',
-          height: '100%',
-          borderTop: '0.2% solid gray',
+          backgroundColor: "#141414 !important",
+          height: "100%",
+          borderTop: "0.2% solid gray"
         }}
       >
         <Box
           sx={{
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderBottom: '1px solid lightgray',
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            borderBottom: "1px solid lightgray"
           }}
         >
           <Toolbar
             sx={{
-              display: 'flex',
-              width: '60%',
-              justifyContent: 'space-evenly',
-              padding: '10px',
+              display: "flex",
+              width: "65%",
+              justifyContent: "space-evenly"
             }}
           >
             <Typography
               sx={{
-                fontWeight: '900',
-                fontSize: '40px',
-                color: 'lightgray',
-                letterSpacing: '2px',
+                fontWeight: "900",
+                fontSize: "2em",
+                color: "lightgray",
+                letterSpacing: "2px",
+                marginLeft: "3%"
               }}
             >
               0xplore
             </Typography>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
+
+            <Button
+              sx={{
+                background: `linear-gradient(-45deg, #2dffff, #afff1a) !important`,
+                color: "black",
+                borderRadius: "20px",
+                padding: "0.9em",
+                margin: "10px"
               }}
             >
-              <img
-                src={logo}
-                alt='logo'
-                style={{
-                  height: '40px',
-                  width: '40px',
-                  borderRadius: '50%',
-                  marginRight: '5px',
-                  opacity: '0.9',
-                }}
-              />
-              <Button
-                sx={{
-                  background: `linear-gradient(-45deg, #2dffff, #afff1a) !important`,
-                  color: 'black',
-                  borderRadius: '20px',
-                  padding: '20px',
-                }}
-              >
-                <Typography sx={{ fontSize: '15px !important' }}>
-                  Connect to wallet
-                </Typography>
-              </Button>
-            </div>
+              <Typography sx={{ fontSize: "1em", fontWeight: 900 }}>
+                Connect to wallet
+              </Typography>
+            </Button>
           </Toolbar>
         </Box>
       </AppBar>
     </Box>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

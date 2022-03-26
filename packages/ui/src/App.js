@@ -1,8 +1,8 @@
-import React from 'react'
-import { Box, Grid, Typography } from '@mui/material'
-import Navbar from './components/Navbar'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
-import CardList from './components/CardList'
+import React from "react";
+import { Box, Grid, Typography } from "@mui/material";
+import Navbar from "./components/Navbar";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CardList from "./components/CardList";
 
 const theme = createTheme({
   typography: {
@@ -10,10 +10,10 @@ const theme = createTheme({
       fontFamily: `'Roboto Mono', monospace`,
       fontWeightLight: 400,
       fontWeightRegular: 600,
-      fontWeightMedium: 900,
-    },
-  },
-})
+      fontWeightMedium: 900
+    }
+  }
+});
 function App() {
   return (
     <>
@@ -23,37 +23,43 @@ function App() {
         <Grid
           container
           sx={{
-            color: 'white',
-            marginTop: '10px',
-            height: `100%`,
+            color: "white",
+            marginTop: "10px",
+            height: `100%`
           }}
         >
-          <Grid item xl={0.5} />
+          <Grid item xl={0.5} sm={0} />
           <Grid
             item
             xl={2.5}
-            sx={{ border: '1px solid white', borderRadius: '20px' }}
+            sm={0}
+            sx={{ border: "1px solid white", borderRadius: "20px" }}
           >
             <Box>
               <Typography>x</Typography>
             </Box>
           </Grid>
-          <Grid item xl={0.5} />
+          <Grid item xl={0.5} sm={0} />
           <Grid
             item
-            xl={6}
+            xl={5}
+            sm={12}
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
+              display: "flex",
+              justifyContent: "center"
             }}
           >
             <CardList />
           </Grid>
-          <Grid item xl={0.5} />
+          <Grid item xl={0.5} sm={0} />
+          <Grid item xl={2.5} sm={0} sx={{ border: "1px solid gray" }}>
+            x
+          </Grid>
+          <Grid item xl={0.5} sm={0} />
         </Grid>
       </ThemeProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
