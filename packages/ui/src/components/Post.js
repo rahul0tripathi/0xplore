@@ -58,11 +58,11 @@ function Post({ address, img, title, desc = "" }) {
           </motion.button>
         </Box>
         {/* Image Title and Desc Container */}
-        <Box sx={{ marginTop: "10px", display: "flex" }}>
+        <Box sx={{ marginTop: "10px", display: "flex", width: "100%" }}>
           <img
             alt="post"
             src={img}
-            style={{ width: "60%", height: "200px", borderRadius: "10px" }}
+            style={{ width: "300px", height: "300px", borderRadius: "10px" }}
           />
           <Box
             sx={{
@@ -78,8 +78,8 @@ function Post({ address, img, title, desc = "" }) {
             <Box
               sx={{
                 overflow: "auto",
-                maxHeight: "30%",
-                minHeight: "120px"
+                maxHeight: "200px",
+                minHeight: "200px"
               }}
               className="xyz"
             >
@@ -101,7 +101,7 @@ function Post({ address, img, title, desc = "" }) {
             </Typography>
           </Box>
         </Box>
-        {/* actions */}
+        . {/* actions */}
       </Card>
     </>
   );
