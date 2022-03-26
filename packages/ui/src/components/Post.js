@@ -58,18 +58,26 @@ function Post({ address, img, title, desc = "" }) {
           </motion.button>
         </Box>
         {/* Image Title and Desc Container */}
-        <Box sx={{ marginTop: "10px", display: "flex", width: "100%" }}>
+        <Box
+          sx={{
+            marginTop: "10px",
+            display: "flex",
+            width: "100%",
+            height: "300px"
+          }}
+        >
           <img
             alt="post"
             src={img}
-            style={{ width: "300px", height: "300px", borderRadius: "10px" }}
+            style={{ width: "50%", borderRadius: "10px" }}
           />
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
               marginLeft: "10px",
-              marginRight: "10px"
+              marginRight: "10px",
+              width: "50%"
             }}
           >
             <Typography sx={{ fontWeight: 900, fontSize: "15px" }}>

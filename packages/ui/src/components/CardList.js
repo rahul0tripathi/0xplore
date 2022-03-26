@@ -10,7 +10,7 @@ function CardList() {
       sx={{
         width: "100vw",
         padding: "5px",
-        maxHeight: "85vh",
+        maxHeight: "80vh",
         borderRadius: "10px",
         overflowY: "scroll"
       }}
