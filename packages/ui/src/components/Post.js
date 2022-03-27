@@ -1,11 +1,13 @@
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Button, Card, Typography } from "@mui/material";
 import React, { useState } from "react";
 import profile from "../assets/images/profile.webp";
 import { MdContentCopy } from "react-icons/md";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import "./style.css";
+import Action from "./Action";
 function Post({ address, img, title, desc = "", profilePic = null }) {
   const [read, setRead] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   console.log(desc);
   return (
     <>
@@ -13,7 +15,6 @@ function Post({ address, img, title, desc = "", profilePic = null }) {
         sx={{
           display: "flex",
           minHeight: "175px",
-          maxHeight: "400px",
           background: "#292929",
           borderRadius: "15px",
           border: "2px solid #414141",
@@ -89,7 +90,7 @@ function Post({ address, img, title, desc = "", profilePic = null }) {
         {/* Image Title and Desc Container */}
         <Box
           sx={{
-            marginTop: "10px",
+            marginTop: "20px",
             display: "flex",
             width: "100%",
             height: "300px",
@@ -143,8 +144,55 @@ function Post({ address, img, title, desc = "", profilePic = null }) {
             )}
           </Box>
         </Box>
+
         {/* actions */}
-        <Box></Box>
+        <Box sx={{ width: "100%", marginTop: "20px" }}>
+          <motion.header
+            initial={false}
+            animate={{ backgroundColor: expanded ? "#292929" : "#292929" }}
+            onClick={() => setExpanded(!expanded)}
+            style={{ cursor: "pointer" }}
+          >
+            <Box
+              sx={{ display: "flex", width: "100%", justifyContent: "center" }}
+            >
+              <Button
+                sx={{
+                  background: "linear-gradient(45deg,#9257ff,#ff5da1)",
+                  borderRadius: "10px",
+                  padding: "10px"
+                }}
+              >
+                <Typography
+                  sx={{
+                    color: expanded ? "white" : "white",
+                    width: "100%",
+                    textAlign: "center"
+                  }}
+                >
+                  0xplore features 🔥
+                </Typography>
+              </Button>
+            </Box>
+          </motion.header>
+          <AnimatePresence initial={false}>
+            {expanded && (
+              <motion.section
+                key="content"
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: "auto" },
+                  collapsed: { opacity: 0, height: 0 }
+                }}
+                transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
+              >
+                <Action />
+              </motion.section>
+            )}
+          </AnimatePresence>
+        </Box>
       </Card>
     </>
   );
