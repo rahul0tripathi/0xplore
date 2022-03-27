@@ -1,14 +1,16 @@
 import { Box, Button, Card, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import profile from "../assets/images/profile.webp";
 import { MdContentCopy } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
 import "./style.css";
 import Action from "./Action";
+
 function Post({ address, img, title, desc = "", profilePic = null }) {
   const [read, setRead] = useState(true);
   const [expanded, setExpanded] = useState(false);
   console.log(desc);
+  
   return (
     <>
       <Card

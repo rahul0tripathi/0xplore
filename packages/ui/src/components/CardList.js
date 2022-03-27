@@ -4,7 +4,8 @@ import Post from "./Post";
 import DescPost from "./DescPost";
 import "./style.css";
 import lana from "../assets/images/profile.webp";
-function CardList() {
+function CardList({ user, setUser, web3Auth, posts = [] }) {
+  console.log(posts)
   return (
     <Container
       sx={{
@@ -13,12 +14,23 @@ function CardList() {
         borderRadius: "10px",
         overflowY: "scroll",
         padding: "10px",
-        margin: 0
+        margin: 0,
       }}
       className="xyz"
     >
-      <DescPost />
-      <Post
+      <DescPost user={user} setUser={setUser} web3Auth={web3Auth} />
+      {posts?.map((val) => {
+        console.log(val)
+        return (
+          <Post
+            address={val.address.toString()}
+            img={val.image}
+            title={val.title}
+            desc={val.desc}
+          />
+        );
+      })}
+      {/* <Post
         address="0xAB7F2A5b0BA85bc882C7b7f651A106d7F80cb8c3"
         img={lana}
         title="This is the title of post"
@@ -27,7 +39,7 @@ function CardList() {
       <Post />
       <Post />
       <Post />
-      <Post />
+      <Post /> */}
     </Container>
   );
 }

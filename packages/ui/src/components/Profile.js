@@ -1,8 +1,26 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { GoLinkExternal } from "react-icons/go";
 import { motion } from "framer-motion";
-function Profile({ pic = null, address, username }) {
+import { ethers } from "ethers";
+import fn from "../lens";
+function Profile() {
+  const [pic, setPic] = useState(null);
+  const [address, setAddress] = useState(null);
+  const [username, setUserName] = useState(null);
+  useEffect(() => {
+    console.log("profile init");
+    const setUserCall = async () => {
+      const profile = await fn.getProfile();
+      console.log(profile);
+      if (profile) {
+        setPic(null);
+        setUserName(profile?.handle);
+        setAddress(profile?.address);
+      }
+    };
+    setUserCall();
+  });
   return (
     <>
       <Box
@@ -11,7 +29,7 @@ function Profile({ pic = null, address, username }) {
           height: "50%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
         {pic ? (
@@ -21,7 +39,7 @@ function Profile({ pic = null, address, username }) {
             style={{
               width: "150px",
               height: "150px",
-              borderRadius: "50%"
+              borderRadius: "50%",
             }}
           />
         ) : (
@@ -30,7 +48,7 @@ function Profile({ pic = null, address, username }) {
               width: "150px",
               height: "150px",
               borderRadius: "50%",
-              background: "linear-gradient(45deg,#9257ff,#ff5da1)"
+              background: "linear-gradient(45deg,#9257ff,#ff5da1)",
             }}
           ></Box>
         )}
@@ -45,7 +63,7 @@ function Profile({ pic = null, address, username }) {
             display: "flex",
             color: "white",
             alignItems: "center",
-            marginTop: "10px"
+            marginTop: "10px",
           }}
           onClick={() => {
             console.log("clicked");
@@ -54,7 +72,7 @@ function Profile({ pic = null, address, username }) {
           }}
         >
           <Typography noWrap sx={{ alignSelf: "center", width: "170px" }}>
-            {address?.toLowerCase()}
+            {address?.toLowerCase().slice(0,18)}
           </Typography>
           <GoLinkExternal style={{ color: "white", marginTop: "5px" }} />
         </motion.button>
@@ -67,7 +85,7 @@ function Profile({ pic = null, address, username }) {
             zIndex: "-10",
             top: "25%",
             borderRadius: "15px",
-            border: "2px solid #414141"
+            border: "2px solid #414141",
           }}
         ></Box>
       </Box>

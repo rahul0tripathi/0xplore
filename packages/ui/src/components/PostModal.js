@@ -1,10 +1,11 @@
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
+import fn from "../lens";
 const useStyles = makeStyles({
   label: {
-    color: "white"
-  }
+    color: "white",
+  },
 });
 
 function PostModal({ open, handleClose }) {
@@ -12,6 +13,9 @@ function PostModal({ open, handleClose }) {
   const [postImage, setPostImage] = useState(null);
   const [desc, setDesc] = useState("");
   const [title, setTitle] = useState("");
+  const createPost = async ()=>{
+    await fn.createPost(title,postImage,desc)
+  }
   return (
     <Modal
       open={open}
@@ -30,7 +34,7 @@ function PostModal({ open, handleClose }) {
           borderRadius: "20px",
           boxShadow: 24,
           p: 4,
-          height: "300px"
+          height: "300px",
         }}
       >
         <Box
@@ -38,7 +42,7 @@ function PostModal({ open, handleClose }) {
             width: "100%",
             height: "100%",
             display: "flex",
-            flexDirection: "column"
+            flexDirection: "column",
           }}
         >
           <Box
@@ -46,7 +50,7 @@ function PostModal({ open, handleClose }) {
               width: "100%",
               display: "flex",
               alignItems: "center",
-              justifyContent: "space-around"
+              justifyContent: "space-around",
             }}
           >
             <label htmlFor="upload-photo" style={{}}>
@@ -54,9 +58,9 @@ function PostModal({ open, handleClose }) {
                 id="upload-photo"
                 type="file"
                 name="PostImg"
-                onChange={event => {
-                  console.log(event.target.file[0]);
-                  setPostImage(event.target.file[0]);
+                onChange={(event) => {
+                  console.log(event.target.files[0]);
+                  setPostImage(event.target.files[0]);
                 }}
                 style={{ display: "none" }}
               />
@@ -75,10 +79,10 @@ function PostModal({ open, handleClose }) {
               required
               variant="filled"
               value={title}
-              onChange={event => setTitle(event.target.value)}
+              onChange={(event) => setTitle(event.target.value)}
               sx={{ input: { color: "white" } }}
               InputLabelProps={{
-                className: classes.label
+                className: classes.label,
               }}
             />
           </Box>
@@ -86,7 +90,7 @@ function PostModal({ open, handleClose }) {
             sx={{
               width: "100%",
               margin: "5px",
-              display: "flex"
+              display: "flex",
             }}
           >
             <TextField
@@ -96,17 +100,17 @@ function PostModal({ open, handleClose }) {
               variant="filled"
               rows={4}
               value={desc}
-              onChange={event => setDesc(event.target.value)}
+              onChange={(event) => setDesc(event.target.value)}
               sx={{
                 marginTop: "30px",
                 width: "100%",
-                input: { color: "white" }
+                input: { color: "white" },
               }}
               InputLabelProps={{
-                className: classes.label
+                className: classes.label,
               }}
               inputProps={{
-                className: classes.label
+                className: classes.label,
               }}
             />
           </Box>
@@ -115,17 +119,18 @@ function PostModal({ open, handleClose }) {
               width: "100%",
               display: "flex",
               justifyContent: "flex-end",
-              marginTop: "20px"
+              marginTop: "20px",
             }}
           >
             <Button
+            onClick={createPost}
               style={{
                 width: "20%",
                 color: "white",
                 background: "linear-gradient(45deg,#9257ff,#ff5da1)",
                 border: 0,
                 borderRadius: "8px",
-                padding: "10px"
+                padding: "10px",
               }}
             >
               <Typography sx={{ fontSize: "15px", letterSpacing: "2px" }}>
