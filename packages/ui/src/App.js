@@ -34,14 +34,14 @@ function App() {
           <Grid
             item
             xl={0.5}
-            sm={0}
+            lg={0.5}
             sx={{
               display: {
                 xs: "none",
                 sm: "none",
-                lg: "npne",
-                md: "block",
-                xl: "block"
+                md: "none",
+                xl: "block",
+                lg: "block"
               }
             }}
           />
@@ -50,7 +50,7 @@ function App() {
           <Grid
             item
             xl={2.5}
-            sm={0}
+            lg={2.5}
             sx={{
               padding: "5px !important",
               display: {
@@ -71,9 +71,15 @@ function App() {
           <Grid
             item
             xl={0.5}
-            sm={0}
+            lg={0.5}
             sx={{
-              display: { xs: "none", sm: "none", md: "block", xl: "block" }
+              display: {
+                xs: "none",
+                sm: "none",
+                md: "none",
+                xl: "block",
+                lg: "block"
+              }
             }}
           />
 
@@ -81,7 +87,7 @@ function App() {
           <Grid
             item
             xl={5}
-            lg={8}
+            lg={5}
             sm={12}
             sx={{
               display: "flex",
@@ -95,9 +101,15 @@ function App() {
           <Grid
             item
             xl={0.5}
-            sm={0}
+            lg={0.5}
             sx={{
-              display: { xs: "none", sm: "none", md: "block", xl: "block" }
+              display: {
+                xs: "none",
+                sm: "none",
+                md: "none",
+                xl: "block",
+                lg: "block"
+              }
             }}
           />
 
@@ -105,7 +117,7 @@ function App() {
           <Grid
             item
             xl={2.5}
-            sm={0}
+            lg={2.5}
             sx={{
               justifyContent: "center",
               marginTop: "2rem",
@@ -126,9 +138,15 @@ function App() {
           <Grid
             item
             xl={0.5}
-            sm={0}
+            lg={0.5}
             sx={{
-              display: { xs: "none", sm: "none", md: "block", xl: "block" }
+              display: {
+                xs: "none",
+                sm: "none",
+                md: "none",
+                xl: "block",
+                lg: "block"
+              }
             }}
           />
         </Grid>
