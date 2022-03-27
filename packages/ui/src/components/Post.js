@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import profile from "../assets/images/profile.webp";
 import { MdContentCopy } from "react-icons/md";
 import { motion } from "framer-motion";
-import "./Post.css";
-function Post({ address, img, title, desc = "" }) {
+import "./style.css";
+function Post({ address, img, title, desc = "", profilePic = null }) {
   const [read, setRead] = useState(true);
   console.log(desc);
   return (
@@ -26,16 +26,28 @@ function Post({ address, img, title, desc = "" }) {
       >
         {/* Profile pic and address */}
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <img
-            src={profile}
-            alt="profile "
-            style={{
-              height: "2em",
-              width: "2em",
-              borderRadius: "1em",
-              marginRight: "6px"
-            }}
-          />
+          {profilePic ? (
+            <img
+              src={profile}
+              alt="profile "
+              style={{
+                height: "2em",
+                width: "2em",
+                borderRadius: "1em",
+                marginRight: "6px"
+              }}
+            />
+          ) : (
+            <Box
+              style={{
+                height: "2em",
+                width: "2em",
+                borderRadius: "1em",
+                marginRight: "6px",
+                background: "linear-gradient(45deg,#9257ff,#ff5da1)"
+              }}
+            ></Box>
+          )}
 
           <motion.button
             whileTap={{ opacity: 0.2 }}
@@ -51,10 +63,27 @@ function Post({ address, img, title, desc = "" }) {
               navigator.clipboard.writeText(`${address}`);
             }}
           >
-            <Typography noWrap sx={{ alignSelf: "center", width: "40%" }}>
-              {address}
-            </Typography>
-            <MdContentCopy style={{ color: "white", marginTop: "5px" }} />
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                background: `linear-gradient(45deg,#e523ff,#4548ff)`,
+                padding: "5px",
+                borderRadius: "10px"
+              }}
+            >
+              <Typography
+                noWrap
+                sx={{
+                  alignSelf: "center",
+                  width: "200px",
+                  fontSize: "18px"
+                }}
+              >
+                {address?.toLowerCase()}
+              </Typography>
+              <MdContentCopy style={{ color: "white", marginTop: "5px" }} />
+            </Box>
           </motion.button>
         </Box>
         {/* Image Title and Desc Container */}
@@ -63,7 +92,8 @@ function Post({ address, img, title, desc = "" }) {
             marginTop: "10px",
             display: "flex",
             width: "100%",
-            height: "300px"
+            height: "300px",
+            textAlign: "center"
           }}
         >
           <img
@@ -91,22 +121,26 @@ function Post({ address, img, title, desc = "" }) {
               }}
               className="xyz"
             >
-              <Typography sx={{ fontSize: "12px" }}>
-                {read ? desc.slice(0, 150) : desc}
+              <Typography sx={{ fontSize: "15px" }}>
+                {read ? desc.slice(0, 300) : desc}
               </Typography>
             </Box>
-            <Typography
-              sx={{ fontsize: "12px", alignSelf: "flex-end" }}
-              onClick={() => {
-                setRead(!read);
-              }}
-            >
-              {read ? (
-                <Typography sx={{ fontsize: "12px" }}>..more</Typography>
-              ) : (
-                <Typography sx={{ fontsize: "12px" }}>..less</Typography>
-              )}
-            </Typography>
+            {desc.length > 150 ? (
+              <Typography
+                sx={{ alignSelf: "flex-end" }}
+                onClick={() => {
+                  setRead(!read);
+                }}
+              >
+                {read ? (
+                  <Typography sx={{}}>..more</Typography>
+                ) : (
+                  <Typography sx={{}}>..less</Typography>
+                )}
+              </Typography>
+            ) : (
+              <></>
+            )}
           </Box>
         </Box>
         . {/* actions */}

@@ -2,7 +2,7 @@ import { Container } from "@mui/material";
 import React from "react";
 import Post from "./Post";
 import DescPost from "./DescPost";
-import "../App.css";
+import "./style.css";
 import lana from "../assets/images/profile.webp";
 function CardList() {
   return (
@@ -14,7 +14,7 @@ function CardList() {
         borderRadius: "10px",
         overflowY: "scroll"
       }}
-      className="scrollbar"
+      className="xyz"
     >
       <DescPost />
       <Post

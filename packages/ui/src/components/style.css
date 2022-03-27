@@ -1,0 +1,8 @@
+.xyz::-webkit-scrollbar {
+  display: none;
+}
+
+.lens {
+  filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(235deg)
+    brightness(107%) contrast(101%);
+}

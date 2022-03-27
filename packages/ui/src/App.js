@@ -1,10 +1,11 @@
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import Navbar from "./components/Navbar";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CardList from "./components/CardList";
 import Profile from "./components/Profile";
 import profilepic from "./assets/images/profile.webp";
+import ProjectDesc from "./components/ProjectDesc";
 const theme = createTheme({
   typography: {
     allVariants: {
@@ -24,8 +25,9 @@ function App() {
           container
           sx={{
             color: "white",
-            marginTop: "10px",
-            height: `100%`
+            height: `100%`,
+            display: "flex",
+            justifyContent: "center"
           }}
         >
           {/* dumper */}
@@ -34,30 +36,35 @@ function App() {
             xl={0.5}
             sm={0}
             sx={{
-              display: { xs: "none", sm: "none", md: "block", xl: "block" }
+              display: {
+                xs: "none",
+                sm: "none",
+                lg: "npne",
+                md: "block",
+                xl: "block"
+              }
             }}
           />
 
-          {/* followers grid */}
+          {/* Desc  grid */}
           <Grid
             item
             xl={2.5}
             sm={0}
             sx={{
-              border: "1px solid white",
-              borderRadius: "20px",
+              padding: "5px !important",
               display: {
                 xs: "none",
                 sm: "none",
                 md: "none",
-                xl: "block",
-                lg: "block"
-              }
+                xl: "flex",
+                lg: "none"
+              },
+              justifyContent: "center",
+              marginTop: "2rem"
             }}
           >
-            <Box>
-              <Typography>x</Typography>
-            </Box>
+            <ProjectDesc />
           </Grid>
 
           {/* dumper */}
@@ -74,6 +81,7 @@ function App() {
           <Grid
             item
             xl={5}
+            lg={8}
             sm={12}
             sx={{
               display: "flex",
@@ -99,24 +107,20 @@ function App() {
             xl={2.5}
             sm={0}
             sx={{
-              border: "1px solid gray",
-              borderRadius: "10px",
-              display: "flex",
               justifyContent: "center",
-              padding: "10px",
               marginTop: "2rem",
               display: {
                 xs: "none",
                 sm: "none",
                 md: "none",
-                xl: "block",
-                lg: "block"
+                xl: "flex",
+                lg: "none"
               }
             }}
           >
             <Profile
-              pic={profilepic}
               address="0xAB7F2A5b0BA85bc882C7b7f651A106d7F80cb8c3"
+              username="Dewansh Shukla"
             />
           </Grid>
           <Grid

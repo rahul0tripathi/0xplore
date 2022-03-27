@@ -51,10 +51,22 @@ function Navbar() {
                 color: "black",
                 borderRadius: "20px",
                 padding: "0.9em",
-                margin: "10px"
+                margin: "10px",
+                display: {
+                  xs: "none",
+                  sm: "block",
+                  md: "block",
+                  lg: "block",
+                  xl: "block"
+                }
               }}
             >
-              <Typography sx={{ fontSize: "1em", fontWeight: 900 }}>
+              <Typography
+                sx={{
+                  fontSize: "1em",
+                  fontWeight: 900
+                }}
+              >
                 Connect to wallet
               </Typography>
             </Button>
