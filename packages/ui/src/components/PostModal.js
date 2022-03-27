@@ -1,7 +1,14 @@
-import { Box, Modal, TextField } from "@mui/material";
+import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles({
+  label: {
+    color: "white"
+  }
+});
 
 function PostModal({ open, handleClose }) {
+  const classes = useStyles();
   const [postImage, setPostImage] = useState(null);
   const [desc, setDesc] = useState("");
   const [title, setTitle] = useState("");
@@ -19,25 +26,31 @@ function PostModal({ open, handleClose }) {
           left: "50%",
           transform: "translate(-50%, -50%)",
           width: "600px",
-          backgroundColor: "white",
-          border: "2px solid #000",
+          background: "#292929",
+          borderRadius: "20px",
           boxShadow: 24,
           p: 4,
-          height: "200px"
+          height: "300px"
         }}
       >
-        <Box sx={{ width: "100%", display: "flex", flexDirection: "row" }}>
-          <Box sx={{ width: "50%", height: "100px" }}>
-            <Box
-              sx={{
-                height: "200px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center"
-              }}
-            >
-              <input
+        <Box
+          sx={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column"
+          }}
+        >
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-around"
+            }}
+          >
+            <label htmlFor="upload-photo" style={{}}>
+              <TextField
                 id="upload-photo"
                 type="file"
                 name="PostImg"
@@ -45,33 +58,80 @@ function PostModal({ open, handleClose }) {
                   console.log(event.target.file[0]);
                   setPostImage(event.target.file[0]);
                 }}
-                style={{ width: "100%" }}
+                style={{ display: "none" }}
               />
-              {/* To access the image URL.createObjectURL(postImage) */}
-            </Box>
+              <Button
+                color="secondary"
+                variant="contained"
+                component="span"
+                sx={{ background: "linear-gradient(45deg,#9257ff,#ff5da1)" }}
+              >
+                Upload Media
+              </Button>
+            </label>
+            {/* To access the image URL.createObjectURL(postImage) */}
+            <TextField
+              label="Title"
+              required
+              variant="filled"
+              value={title}
+              onChange={event => setTitle(event.target.value)}
+              sx={{ input: { color: "white" } }}
+              InputLabelProps={{
+                className: classes.label
+              }}
+            />
           </Box>
           <Box
             sx={{
-              width: "50%",
+              width: "100%",
               margin: "5px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-end"
+              display: "flex"
             }}
           >
             <TextField
-              label="Title"
-              value={title}
-              onChange={event => setTitle(event.target.value)}
-            />
-            <TextField
               label="Desc"
+              id="filled-multiline-static"
               multiline
-              maxRows={2}
+              variant="filled"
+              rows={4}
               value={desc}
               onChange={event => setDesc(event.target.value)}
-              sx={{ height: "50px !important", marginTop: "30px" }}
+              sx={{
+                marginTop: "30px",
+                width: "100%",
+                input: { color: "white" }
+              }}
+              InputLabelProps={{
+                className: classes.label
+              }}
+              inputProps={{
+                className: classes.label
+              }}
             />
+          </Box>
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "20px"
+            }}
+          >
+            <Button
+              style={{
+                width: "20%",
+                color: "white",
+                background: "linear-gradient(45deg,#9257ff,#ff5da1)",
+                border: 0,
+                borderRadius: "8px",
+                padding: "10px"
+              }}
+            >
+              <Typography sx={{ fontSize: "15px", letterSpacing: "2px" }}>
+                Post
+              </Typography>
+            </Button>
           </Box>
         </Box>
       </Box>

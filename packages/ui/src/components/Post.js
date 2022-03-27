@@ -143,7 +143,8 @@ function Post({ address, img, title, desc = "", profilePic = null }) {
             )}
           </Box>
         </Box>
-        . {/* actions */}
+        {/* actions */}
+        <Box></Box>
       </Card>
     </>
   );

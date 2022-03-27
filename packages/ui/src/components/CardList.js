@@ -9,10 +9,11 @@ function CardList() {
     <Container
       sx={{
         width: "100vw",
-        padding: "5px",
         maxHeight: "80vh",
         borderRadius: "10px",
-        overflowY: "scroll"
+        overflowY: "scroll",
+        padding: "10px",
+        margin: 0
       }}
       className="xyz"
     >

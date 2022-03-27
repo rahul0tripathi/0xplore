@@ -52,7 +52,6 @@ function App() {
             xl={2.5}
             lg={2.5}
             sx={{
-              padding: "5px !important",
               display: {
                 xs: "none",
                 sm: "none",
@@ -88,7 +87,7 @@ function App() {
             item
             xl={5}
             lg={5}
-            sm={12}
+            sm={10}
             sx={{
               display: "flex",
               justifyContent: "center"
@@ -135,6 +134,7 @@ function App() {
               username="Dewansh Shukla"
             />
           </Grid>
+
           <Grid
             item
             xl={0.5}
