@@ -29,14 +29,31 @@ function App() {
           }}
         >
           {/* dumper */}
-          <Grid item xl={0.5} sm={0} />
+          <Grid
+            item
+            xl={0.5}
+            sm={0}
+            sx={{
+              display: { xs: "none", sm: "none", md: "block", xl: "block" }
+            }}
+          />
 
           {/* followers grid */}
           <Grid
             item
             xl={2.5}
             sm={0}
-            sx={{ border: "1px solid white", borderRadius: "20px" }}
+            sx={{
+              border: "1px solid white",
+              borderRadius: "20px",
+              display: {
+                xs: "none",
+                sm: "none",
+                md: "none",
+                xl: "block",
+                lg: "block"
+              }
+            }}
           >
             <Box>
               <Typography>x</Typography>
@@ -44,7 +61,14 @@ function App() {
           </Grid>
 
           {/* dumper */}
-          <Grid item xl={0.5} sm={0} />
+          <Grid
+            item
+            xl={0.5}
+            sm={0}
+            sx={{
+              display: { xs: "none", sm: "none", md: "block", xl: "block" }
+            }}
+          />
 
           {/* posts grid */}
           <Grid
@@ -60,7 +84,14 @@ function App() {
           </Grid>
 
           {/* dumper */}
-          <Grid item xl={0.5} sm={0} />
+          <Grid
+            item
+            xl={0.5}
+            sm={0}
+            sx={{
+              display: { xs: "none", sm: "none", md: "block", xl: "block" }
+            }}
+          />
 
           {/* profile grid */}
           <Grid
@@ -73,7 +104,14 @@ function App() {
               display: "flex",
               justifyContent: "center",
               padding: "10px",
-              marginTop: "2rem"
+              marginTop: "2rem",
+              display: {
+                xs: "none",
+                sm: "none",
+                md: "none",
+                xl: "block",
+                lg: "block"
+              }
             }}
           >
             <Profile
@@ -81,7 +119,14 @@ function App() {
               address="0xAB7F2A5b0BA85bc882C7b7f651A106d7F80cb8c3"
             />
           </Grid>
-          <Grid item xl={0.5} sm={0} />
+          <Grid
+            item
+            xl={0.5}
+            sm={0}
+            sx={{
+              display: { xs: "none", sm: "none", md: "block", xl: "block" }
+            }}
+          />
         </Grid>
       </ThemeProvider>
     </>
