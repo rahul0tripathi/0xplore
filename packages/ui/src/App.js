@@ -58,7 +58,7 @@ function App() {
                 sm: "none",
                 md: "none",
                 xl: "flex",
-                lg: "none"
+                lg: "flex"
               },
               justifyContent: "center",
               marginTop: "2rem"
@@ -126,7 +126,7 @@ function App() {
                 sm: "none",
                 md: "none",
                 xl: "flex",
-                lg: "none"
+                lg: "flex"
               }
             }}
           >
